@@ -1,0 +1,11 @@
+
+## Commands
+
+[ export: default ] {
+    name: 'ping'
+    code: {
+        $ping 
+    }
+}
+    
+    

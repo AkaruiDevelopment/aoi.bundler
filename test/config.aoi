@@ -1,0 +1,32 @@
+
+        
+auto { Events, Intents } = [ include: 'aoi.js' ] as const
+auto { process } = [ include: 'process'] as const
+## Configuring the bot
+auto Config = {
+    client: 
+        token: process.env.TOKEN
+        prefix: 'PREFIX'
+        autoUpdate: true
+        ignoreBots: true
+        ignoreSelf: true
+        events : [ Events.MessageCreate, Events.Ready ]
+        intents: [ Intents.Guilds, Intents.GuildMessages ]
+    loader: 
+        useBundler: true
+        useTranspiler: true
+    voice:
+        devOptions: 
+            debug: false
+        requestOptions:
+            offsetTimeout: 0
+            soundcloudLikeTrackLimit: 200
+            spotifyPlaylistLimit: 100
+            youtubePlaylistLimit: 100
+        searchOptions:
+            soundcloudId: process.env.SCID
+            youtubeClient: 'WEB'
+            youtubegl: 'US'
+}   
+
+export default Config

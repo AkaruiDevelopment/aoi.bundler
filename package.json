@@ -1,0 +1,51 @@
+{
+  "name": "aoi.bundler",
+  "version": "0.0.1",
+  "description": "A bundler to bundle your aoi.js src into a single file",
+  "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "scripts": {
+    "test": "node tests",
+    "start": "node index.js",
+    "build": " tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && npm run createpack",
+    "createpack": "node packers/pack.js",
+    "lint": "eslint . --ext .ts --fix --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akaruidevelopment/bundler.git"
+  },
+  "keywords": [
+    "discord-api",
+    "discord",
+    "api",
+    "nodejs",
+    "deno",
+    "discordbot"
+  ],
+  "author": "Akarui Development",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/akaruidevelopment/dapi/issues"
+  },
+  "homepage": "https://github.com/akaruidevelopment/dapi#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  },
+  "bin": {
+    "aoibun": "./bin/index.js"
+  },
+  "dependencies": {
+    "@akarui/aoi.music": "^2.1.0",
+    "aoi.db": "^1.0.0",
+    "boxen": "^7.0.1",
+    "chalk": "^5.2.0",
+    "cli-spinners": "^2.7.0",
+    "ora": "^6.1.2"
+  },
+  "type": "module"
+}

@@ -1,0 +1,10 @@
+
+## Voice events
+
+[export: trackStart ] {
+    name: 'trackStart'
+    channel: $channelId
+    code: {
+        Playing $songInfo[title] by $songInfo[author]
+    }
+}

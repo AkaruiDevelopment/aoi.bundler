@@ -1,0 +1,17 @@
+
+## Custom functions
+auto { CustomFunction } = [include: 'aoi.js' ] as const 
+
+## js type
+auto func = new CustomFunction(
+    name: 'helloworld' ## name ( must be lowercase)
+    type : 'js'
+    code : {
+        afn ( data ) -> {
+            data
+        }
+    }
+)
+
+[ export: func ]
+    

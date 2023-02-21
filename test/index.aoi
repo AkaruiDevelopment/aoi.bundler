@@ -1,0 +1,31 @@
+
+## Including modules
+auto aoijs = [ include: 'aoi.js' ] as const
+auto { AoiVoice -> Voice } = [ include: '@akarui/aoi.music' ] as const
+auto {config -> envConfig } = [ include: 'dotenv' ] as const
+auto Config = [ include: './config.aoi' ] as const 
+
+## Allowing the bot to read the .env file
+envConfig()
+
+## Creating the bot
+auto bot = new aoijs.Client(
+    Config.client
+)
+
+bot.customFunctions = {}
+
+string commandDir = './commands'
+auto loader = new aoijs.Loader(bot,Config.loader)
+loader.load(bot.cmds,commandDir)
+
+## Creating the voice client
+auto voice = new Voice(bot,Config.voice)
+string voiceEventDir = './voice'
+loader.load(voice.cmds,voiceEventDir)
+
+## Custom functions
+string customFunctionDir = './customFunctions'
+loader.load(bot.customFunctions,customFunctionDir)
+
+        
