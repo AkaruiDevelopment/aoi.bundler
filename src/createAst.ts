@@ -17,7 +17,7 @@
 
 spec must be null if "as const" is not present
 */
-const importAstGenerator = (input: string) => {
+export const importAstGenerator = (input: string) => {
     const regex =
         /^(auto)\s+(\w+)\s*=\s*\[\s*include\s*:\s*'(.*)'\s*\]\s*(?:as\s+(\w+)\s*)?$/;
     const match = input.match(regex);
@@ -42,7 +42,7 @@ const importAstGenerator = (input: string) => {
     };
 };
 
-const dataTypeAstGenerator = ( input: string ) =>
+export const dataTypeAstGenerator = ( input: string ) =>
 { 
       const regex =
           /^(auto|string|char|int|ll|bool)\s+(\w+)\s*=\s*(.*?)(?:\s+as\s+(\w+))?$/;
@@ -86,3 +86,4 @@ const dataTypeAstGenerator = ( input: string ) =>
           spec: specType ? { type: specType } : null,
       };
 };
+
