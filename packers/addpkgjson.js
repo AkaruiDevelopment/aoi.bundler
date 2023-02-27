@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const pkg = require('../package.json');
+import fs from "fs"
+import path from "path"
+import pkg from "../package.json"
 const { inspect } = require('util');
 fs.writeFileSync(
   path.join(__dirname, '../src/utils/libconstants.ts'),

@@ -1,4 +1,4 @@
-const { writeFileSync } = require('fs')
+import { writeFileSync } from 'fs'
 
 writeFileSync(
   './dist/cjs/package.json',
